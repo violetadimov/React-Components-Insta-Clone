@@ -3,16 +3,17 @@ import Comment from './Comment';
 import './Comments.css';
 import dummyData from '../../dummy-data'
 
-const Comments = () => {
+const Comments = (props) => {
   // 🔥 Make sure the parent of Comments is passing the right props!
-  const [commentData] = useState(dummyData);
+  //const [commentData] = useState(dummyData);
+  const { comments } = props
 
   return (
     <div>
       {/* map through the comments prop and render a Comment for 
       every piece of data */
-      commentData.map(comment => {
-        return <Comment comment={comment.comments}/>
+      comments.map(comment => {
+        return <Comment key={comment.id} comment={comment}/>
       })
       }
     </div>
